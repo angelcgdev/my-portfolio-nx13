@@ -1,4 +1,11 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {
+  images: {
+    domains: ["images.unsplash.com", "cdn.shopify.com"],
+  },
+  experimental: {
+    scrollRestoration: true,
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

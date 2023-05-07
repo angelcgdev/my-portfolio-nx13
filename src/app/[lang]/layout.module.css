@@ -1,0 +1,6 @@
+.gradient-circle {
+  @apply bg-gradient-radial from-secondary to-primary  absolute z-[100] pointer-events-none opacity-40 dark:opacity-30 w-full h-20 top-[-30px] blur-2xl;
+}
+.gradient-circle-button {
+  @apply bg-gradient-radial from-secondary to-primary absolute z-[100] pointer-events-none opacity-40 dark:opacity-10 w-full h-20 bottom-[-30px] blur-2xl;
+}

@@ -1,0 +1,96 @@
+{
+    "header":{
+        "lang-switch":"go to ingles version"
+    },
+    "back-button":"Atras",
+  "main":{
+      "role":"Desarrollador frontend y mobile",
+      "location":"Lima - Perú",
+      "btn-resume": "Currículum"
+  },
+  "about": {
+      "title":"Sobre mí.",
+      "description":"Desarrollador Frontend Peruano con +3 años de experiencia, he desarrollado y mantenido aplicaciones web y móviles usando JavaScript, React, flutter, Firebase, NodeJs, MySQL entre otras tecnologías, siempre motivado en ayudar al equipo con mi conocimiento y experiencia. Soy un fanático de la tecnología siempre motivado por aprender cosas nuevas y asumir nuevos retos. Me encanta discutir temas relacionados con la optimización de la eficiencia y el uso de las mejores prácticas. Me gustaría trabajar en proyectos relacionados con blockchain e inteligencia.",
+      "recien-technologies": {
+        "title":"Algunas de las tecnologias con las que he trabajado recientemente"
+      }
+  },
+  "experience":{
+    "title":"Donde he trabajado."
+  },
+  "portfolio":{
+    "title":"Portafolio."
+  },
+  "contact":{
+      "title":"Contactame.",
+      "description":"Si necesitas decirme algo, contactame.",
+      "form":{
+        "name":{
+          "label":"Nombre",
+          "error_empty":"Por favor ingresa tu nombre"
+        },
+        "subject":{
+          "label":"Asunto",
+          "error_empty":"El asunto es necesario"
+        },
+        "email":{
+          "label":"Correo",
+          "error_empty":"Por favor ingresa tu correo",
+          "error_invalid":"Correo no valido"
+        },
+        "message":{
+          "label":"Mensaje",
+          "error_empty":"Estas olvidando el mensaje"
+        },
+        "notification":{
+          "success":"Mensaje enviado",
+          "error":"Algo salió mal!"
+        },
+        "btn-send":"Enviar"
+      }
+  },
+  "footer":{
+    "by":"Hecho Con ❤ por"
+  },
+  "resume":{
+    "experience-section":{
+      "title":"Experience",
+      "experiences":[
+        {
+          "role": "Fullstack Engineer",
+          "company": "X",
+          "period": "March 2022 - Present",
+          "fullTime": true,
+          "achievements": ["Bullet One", "Bullet Two"]
+        },
+        {
+          "role": "Frontend Engineer",
+          "company": "X",
+          "period": "March 2022 - Present",
+          "fullTime": true,
+          "achievements": [
+            "Worked on the frontend of a React application",
+            "Worked on the frontend of a React application"
+          ]
+        }
+      ]
+    },
+    "skills-section":{
+      "title":"Skills",
+      "skills-categories":[
+        {
+          "title":"languages",
+          "skills":["Javascript", "HTML5", "CSS", "Typescript", "Dart"]
+        },
+        {
+          "title":"frameworks",
+          "skills":["React", "NodeJs", "Flutter"]
+        },
+        {
+          "title":"others",
+          "skills":["Figma", "Docker", "Azure"]
+        }
+      ]
+    }
+  }
+}

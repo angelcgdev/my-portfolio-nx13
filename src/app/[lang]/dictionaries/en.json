@@ -1,0 +1,96 @@
+{
+  "header":{
+      "lang-switch":"ir a la versión en español"
+  },
+  "back-button":"Back",
+  "main":{
+    "role":"Frontend and mobile developer",
+    "location":"Lima - Peru",
+      "btn-resume": "Resume"
+  },
+  "about": {
+      "title":"About me.",
+      "description":"Peruvian Frontend Developer with +3 years of experience, I have developed and maintained web and mobile applications using JavaScript, React, flutter, Firebase, NodeJs, MySQL along with other technologies, always motivated to help the team with my knowledge and experience. I am a technology fanatic always motivated to learn new things and take on new challenges. I love discussing topics related to efficiency optimization and use of best practices. I would like to work on projects related to blockchain and intelligence.",
+      "recien-technologies": {
+        "title":"Here are a few technologies I’ve been working with recently"
+      }
+  },
+  "experience":{
+    "title":"Where I´ve Worked."
+  },
+  "portfolio":{
+    "title":"Portfolio."
+  },
+  "contact":{
+      "title":"Contact me.",
+      "description":"If you need to tell me something, contact me.",
+      "form":{
+        "name":{
+          "label":"Name",
+          "error_empty":"Please add your name"
+        },
+        "subject":{
+          "label":"Subject",
+          "error_empty":"The subject ir required"
+        },
+        "email":{
+          "label":"Email",
+          "error_empty":"Please add your email",
+          "error_invalid":"Please add an valid email"
+        },
+        "message":{
+          "label":"Message",
+          "error_empty":"You are forgetting the message"
+        },
+        "notification":{
+          "success":"Message sended successfuly",
+          "error":"Someting went worng!"
+        },
+        "btn-send":"Send"
+      }
+  },
+  "footer":{
+    "by":"Made With ❤ by"
+  },
+  "resume":{
+    "experience-section":{
+      "title":"Experience",
+      "experiences":[
+        {
+          "role": "Fullstack Engineer",
+          "company": "X",
+          "period": "March 2022 - Present",
+          "fullTime": true,
+          "achievements": ["Bullet One", "Bullet Two"]
+        },
+        {
+          "role": "Frontend Engineer",
+          "company": "X",
+          "period": "March 2022 - Present",
+          "fullTime": true,
+          "achievements": [
+            "Worked on the frontend of a React application",
+            "Worked on the frontend of a React application"
+          ]
+        }
+      ]
+    },
+    "skills-section":{
+      "title":"Habilidades",
+      "skills-categories":[
+        {
+          "title":"languages",
+          "skills":["Javascript", "HTML5", "CSS", "Typescript", "Dart"]
+        },
+        {
+          "title":"frameworks",
+          "skills":["React", "NodeJs", "Flutter"]
+        },
+        {
+          "title":"others",
+          "skills":["Figma", "Docker", "Azure"]
+        }
+      ]
+    }
+  }
+}
