@@ -4,7 +4,6 @@ import { Experience } from "@/models/experience.model";
 import { headers } from 'next/headers';
 import { Locale } from "../../i18n-config";
 
-export const experiencePath = '/api/experience';
 export type experienceResponse = Response<Experience[]>;
 const experiencesEs: Experience[] = [
     {

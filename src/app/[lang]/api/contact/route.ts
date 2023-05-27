@@ -4,8 +4,6 @@ import * as dotenv from "dotenv";
 import { NextRequest, NextResponse } from "next/server";
 import { Response } from "../models";
 
-export const contactPath = '/api/contact';
-
 export async function POST(req: NextRequest) {
   const res = await req.json();
   console.log({ res: res.message });
