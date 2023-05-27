@@ -1,13 +1,10 @@
-// import { Nextre, NextApiResponse } from "next";
 import nodemailer from "nodemailer";
 import Mail from "nodemailer/lib/mailer";
 import * as dotenv from "dotenv";
 import { NextRequest, NextResponse } from "next/server";
-import { setTimeout } from "timers/promises";
+import { Response } from "../models";
 
-interface Response {
-  result: string;
-}
+export const contactPath = '/api/contact';
 
 export async function POST(req: NextRequest) {
   const res = await req.json();
@@ -48,17 +45,17 @@ export async function POST(req: NextRequest) {
   };
 
   function sendAsPromise() {
-    return new Promise<{ result: string }>(async (resolve, _) => {
+    return new Promise<Response>(async (resolve , _) => {
       transporter.sendMail(mailData, function (err, info) {
         if (err) {
           const { message } = err;
-          resolve({ result: message });
+          resolve({ message });
         } else {
-          resolve({ result: info.response });
+          resolve({ message: info.response });
         }
       });
     });
   }
-  const { result } = await sendAsPromise();
-  return NextResponse.json({ result });
+  const response = await sendAsPromise();
+  return NextResponse.json(response);
 }

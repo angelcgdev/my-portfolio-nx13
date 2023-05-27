@@ -1,5 +1,5 @@
 "use client";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { form } from "../models/form.model";
 import { toast } from "react-toastify";
 import { useFormik } from "formik";
@@ -23,7 +23,7 @@ export function useContact({ dictionary }: CommonProps) {
   const onSubmit = async (values: form) => {
     setIsSending(true);
     try {
-      const request = await fetch("/api/contact", {
+      const request = await fetch('/api/contact', {
         method: "POST",
         headers: {
           Accept: "application/json, text/plain, */*",

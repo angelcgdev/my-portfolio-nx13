@@ -1,14 +1,15 @@
+import { Experience } from "@/models/experience.model";
 import React from "react";
+import { Locale } from "../../i18n-config";
 
-interface Experience {
-  id: number;
-  position: string;
-  company: string;
-  range: string;
-  activities: string[];
-}
-export const ExperienceCard = ({ experience }: { experience: Experience }) => {
-  const { activities, company, id, position, range } = experience;
+interface Props { experience: Experience, locale: Locale }
+
+export const ExperienceCard = ({ experience, locale }: Props) => {
+  const { responsabilities, company, to, role, from, isCurrent } = experience;
+  function dateFormated(date: string){
+    return (new Date(Date.parse(date))).toLocaleDateString(locale, {year: "numeric", month: "long"})
+  }
+
   return (
     <article
       role="article"
@@ -16,15 +17,15 @@ export const ExperienceCard = ({ experience }: { experience: Experience }) => {
     >
       <div>
         <h3 className="font-medium">
-          {position}
+          {role}
           <span className="text-primary-variant"> {company}</span>
         </h3>
-        <p className="text-sm">{range}</p>
+        <p className="text-sm">{dateFormated(from)} - {isCurrent?'Currently':dateFormated(to!)}</p>
       </div>
       <ul aria-label="Activities" className="decorated">
-        {activities.map((activity, i) => (
+        {responsabilities?.map((responsability, i) => (
           <li key={`activity-${i}`}>
-            <p className="description">{activity}</p>
+            <p className="description">{responsability}</p>
           </li>
         ))}
       </ul>
