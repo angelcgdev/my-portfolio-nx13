@@ -78,7 +78,7 @@ const experiencesEn: Experience[] = [
     },
 ];
 export async function GET(req: NextRequest) {
-    const lang = (headers().get('Accept-Language') as Locale) ;
+    const lang = (headers().get('Accept-Language') as (Locale | null)) ;
     console.clear();
     console.log('=========>>');
     console.log(lang);
