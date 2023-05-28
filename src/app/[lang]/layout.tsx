@@ -2,12 +2,12 @@ import "./globals.css";
 import "react-toastify/dist/ReactToastify.css";
 import { Poppins } from "next/font/google";
 import styles from "./layout.module.css";
-import { Providers } from "./components/Providers";
-import { NavBar } from "./components/NavBar/NavBar";
-import { Footer } from "./components/Footer/Footer";
+import { NavBar } from "./_components/NavBar/NavBar";
+import { Footer } from "./_components/Footer/Footer";
 import { Locale, i18n } from "./i18n-config";
-import { LocaleSwitcher } from "./components/LocaleSwitcher";
+import { LocaleSwitcher } from "./_components/LocaleSwitcher";
 import { getDictionary } from "./dictionaries";
+import { Providers } from "./_components/Providers";
 const poppins = Poppins({
   weight: ["400", "600", "700"],
   subsets: ["latin"],

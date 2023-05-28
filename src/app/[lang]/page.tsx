@@ -4,10 +4,10 @@ import {
   ExperienceSection,
   PortfolioSection,
   Welcome,
-} from "./components/sections";
+} from "./_components/sections";
 import { getDictionary } from "./dictionaries";
 import { Locale } from "./i18n-config";
-import { Toaster } from "./components/Toaster";
+import { Toaster } from "./_components/Toaster";
 import { experienceResponse } from "./api/experience/route";
 
 export interface InternationlizationProps {
