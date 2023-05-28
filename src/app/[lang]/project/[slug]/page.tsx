@@ -50,9 +50,11 @@ export default async function Page({ params }: InternationlizationProps) {
           <BackButton dictionary={dictionary} />
           <figure className="relative aspect-video rounded-md overflow-hidden">
             <Image
-              src={project!.imageSrc}
+              src={project.imageUrl}
               className="  object-cover"
               alt="project cover"
+              blurDataURL={project.tumbnailurlBlur}
+              placeholder={project.tumbnailurlBlur?'blur':'empty'}
               fill={true}
             />
           </figure>

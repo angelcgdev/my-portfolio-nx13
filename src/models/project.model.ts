@@ -3,7 +3,8 @@ export interface Project {
     description: string;
     tools: string[];
     longDescription: string;
-    imageSrc: string;
+    imageUrl: string;
     tumbnailurl?: string;
+    tumbnailurlBlur?: string;
     slug: string;   
 }

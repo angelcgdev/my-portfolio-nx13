@@ -7,10 +7,11 @@ interface Props {
   img: string;
   name: string;
   description: string;
+  imgBlur?: string;
   slug: string;
 }
 
-const ProjectCard = ({ img, name, description, slug }: Props) => {
+const ProjectCard = ({ img, name, description, slug, imgBlur }: Props) => {
   return (
     <Link
       key={name}
@@ -24,6 +25,8 @@ const ProjectCard = ({ img, name, description, slug }: Props) => {
             alt="project cover"
             className={styles["cover"]}
             src={img}
+            blurDataURL={imgBlur}
+            placeholder={imgBlur?'blur':'empty'}
             fill={true}
           />
         </figure>

@@ -16,8 +16,9 @@ export const PortfolioSection = ({ dictionary,projects }: Props) => {
           {projects.map((project, index) => (
             <li key={index}>
               <ProjectCard
-                img={project.tumbnailurl?? project.imageSrc}
+                img={project.tumbnailurl?? project.imageUrl}
                 name={project.title}
+                imgBlur={project.tumbnailurlBlur}
                 description={project.description}
                 slug={project.slug}
               />
