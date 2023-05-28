@@ -47,9 +47,9 @@ export async function POST(req: NextRequest) {
       transporter.sendMail(mailData, function (err, info) {
         if (err) {
           const { message } = err;
-          resolve({ message });
+          resolve({ error: message });
         } else {
-          resolve({ message: info.response });
+          resolve({ error: info.response });
         }
       });
     });

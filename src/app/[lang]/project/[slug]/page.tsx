@@ -1,10 +1,10 @@
 import React from "react";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { LeftSide, SectionTitle, SectionTools } from "../../_components/Section";
+import { LeftSide, SectionTitle, SectionTools } from "@/components/Section";
 import { loadProyect } from "@/lib/load-proyect";
 import { Metadata } from "next";
-import { BackButton } from "../../_components/BackButton";
+import { BackButton } from "@/components/BackButton";
 import { InternationlizationProps } from "../../page";
 import { getDictionary } from "../../dictionaries";
 

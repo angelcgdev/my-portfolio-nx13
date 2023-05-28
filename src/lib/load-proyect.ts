@@ -1,5 +1,5 @@
 // import "server-only";
-import { projects } from "../data/local/yourData";
+import { projects } from "@/app/[lang]/api/db";
 import { Project } from "../models/project.model";
 
 export async function loadProyect(slug: string) {

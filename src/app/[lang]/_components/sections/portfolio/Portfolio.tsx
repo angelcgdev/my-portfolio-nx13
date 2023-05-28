@@ -1,4 +1,4 @@
-import { projects } from "@/data/local/yourData";
+import { projects } from "@/app/[lang]/api/db";
 import ProjectCard from "../../ProjectCard/ProjectCard";
 import { SectionWrapper, SectionTitle } from "../../Section";
 import { CommonProps } from "../Welcome";
@@ -14,7 +14,7 @@ export const PortfolioSection = ({ dictionary }: CommonProps) => {
           {projects.map((project, index) => (
             <li key={index}>
               <ProjectCard
-                img={project.imageSrc}
+                img={project.tumbnailurl?? project.imageSrc}
                 name={project.title}
                 description={project.description}
                 slug={project.slug}

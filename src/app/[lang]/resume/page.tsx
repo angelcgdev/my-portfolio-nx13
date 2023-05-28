@@ -4,7 +4,7 @@ import {
   languages,
   others,
 } from "../../../data/local/resumeData";
-import { BackButton } from "../_components/BackButton";
+import { BackButton } from "@/components/BackButton";
 import { getDictionary } from "../dictionaries";
 import { InternationlizationProps } from "../page";
 

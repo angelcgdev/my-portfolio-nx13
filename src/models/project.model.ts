@@ -4,5 +4,6 @@ export interface Project {
     tools: string[];
     longDescription: string;
     imageSrc: string;
+    tumbnailurl?: string;
     slug: string;   
 }

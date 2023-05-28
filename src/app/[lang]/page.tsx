@@ -4,17 +4,17 @@ import {
   ExperienceSection,
   PortfolioSection,
   Welcome,
-} from "./_components/sections";
+} from "@/components/sections";
 import { getDictionary } from "./dictionaries";
 import { Locale } from "./i18n-config";
-import { Toaster } from "./_components/Toaster";
-import { experienceResponse } from "./api/experience/route";
+import { Toaster } from "@/components/Toaster";
+import { ExperienceResponse } from "./api/experience/route";
 
 export interface InternationlizationProps {
   params: { lang: Locale; slug?: string };
 }
 
-async function getData(lang: Locale): Promise<experienceResponse> {
+async function getData(lang: Locale): Promise<ExperienceResponse> {
   const domain = process.env.HOSTNAME;
   const url = `${domain}/${lang}/api/experience`;
   console.log({url});
@@ -29,8 +29,9 @@ async function getData(lang: Locale): Promise<experienceResponse> {
 export default async function Page({
   params: { lang },
 }: InternationlizationProps) {
-  const dictionary = await getDictionary(lang);
-  const { data } = await getData(lang);
+  const dictionaryData = getDictionary(lang);
+  const experienceData = await getData(lang);
+  const [dictionary, { data }] = await Promise.all([dictionaryData, experienceData])
 
   return (
     <>

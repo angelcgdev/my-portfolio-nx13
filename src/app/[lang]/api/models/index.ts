@@ -1,7 +1,18 @@
+import { Locale } from "../../i18n-config";
+
 export type Response<T = undefined> = T extends undefined ? {
-    message?: string;
+    error?: string;
     data?: T
 }:{
     message?: string;
     data: T;
 };
+
+
+export interface CommonParams {
+    lang: Locale
+}
+
+export interface Context<T = CommonParams> {
+    params: T
+}

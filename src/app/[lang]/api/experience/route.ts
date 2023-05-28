@@ -1,18 +1,11 @@
-import { NextRequest, NextResponse } from "next/server";
-import { Response } from "../models";
+import { NextResponse } from "next/server";
+import { Context, Response } from "../models";
 import { Experience } from "@/models/experience.model";
-import { headers } from 'next/headers';
-import { Locale } from "@/app/[lang]/i18n-config";
 import { experiencesEn, experiencesEs } from "../db";
 
-export type experienceResponse = Response<Experience[]>;
+export type ExperienceResponse = Response<Experience[]>;
 
-export async function GET(req: NextRequest) {
-    const lang = (headers().get('Accept-Language') as (Locale | null)) ;
-    console.clear();
-    console.log('=========>>');
-    console.log(lang);
-    console.log('=========>>');
-    const response:experienceResponse = { data: lang==="en"?experiencesEn:experiencesEs };
+export async function GET(req: Request, { params }: Context) {
+    const response:ExperienceResponse = { data: params.lang==="en"?experiencesEn:experiencesEs };
     return NextResponse.json(response);
 }
