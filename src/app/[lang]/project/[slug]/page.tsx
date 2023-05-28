@@ -1,5 +1,3 @@
-import React from "react";
-import Image from "next/image";
 import { notFound } from "next/navigation";
 import { LeftSide, SectionTitle, SectionTools } from "@/components/Section";
 import { Metadata } from "next";
@@ -8,6 +6,7 @@ import { InternationlizationProps } from "../../page";
 import { getDictionary } from "../../dictionaries";
 import { Locale } from "../../i18n-config";
 import { ProjectBySlugResponse } from "../../api/project/[slug]/route";
+import { BlurImage } from "../components/BlurImage";
 
 
 async function getProject(lang: Locale, slug: string):Promise<ProjectBySlugResponse> {
@@ -35,9 +34,10 @@ export async function generateMetadata({
   };
 }
 
+
 export default async function Page({ params }: InternationlizationProps) {
-  let projectData = await getProject(params.lang, params.slug!);
-  const dictionaryData = await getDictionary(params.lang);
+  let projectData = getProject(params.lang, params.slug!);
+  const dictionaryData = getDictionary(params.lang);
   const [dictionary, {data: project}] = await Promise.all([dictionaryData, projectData])
   if (!project) {
     notFound();
@@ -48,16 +48,7 @@ export default async function Page({ params }: InternationlizationProps) {
       <section>
         <div className="flex flex-col gap-4 !p-5">
           <BackButton dictionary={dictionary} />
-          <figure className="relative aspect-video rounded-md overflow-hidden">
-            <Image
-              src={project.imageUrl}
-              className="  object-cover"
-              alt="project cover"
-              blurDataURL={project.tumbnailurlBlur}
-              placeholder={project.tumbnailurlBlur?'blur':'empty'}
-              fill={true}
-            />
-          </figure>
+            <BlurImage project={project}/>
           <div>
             <SectionTitle>{project!.title}</SectionTitle>
             <SectionTools tools={project?.tools} />

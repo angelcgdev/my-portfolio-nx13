@@ -1,7 +1,6 @@
-import React from "react";
-import Image from "next/image";
 import Link from "next/link";
 import styles from "./ProjectCard.module.css";
+import { ProjectBlurImage } from "./ProjectBlurImage";
 
 interface Props {
   img: string;
@@ -20,16 +19,7 @@ const ProjectCard = ({ img, name, description, slug, imgBlur }: Props) => {
       aria-label={`Project ${name}`}
     >
       <article role="article" className={styles.wrapper}>
-        <figure className={styles["cover-wrapper"]}>
-          <Image
-            alt="project cover"
-            className={styles["cover"]}
-            src={img}
-            blurDataURL={imgBlur}
-            placeholder={imgBlur?'blur':'empty'}
-            fill={true}
-          />
-        </figure>
+        <ProjectBlurImage img={img} imgBlur={imgBlur}/>
         <div className={styles.body}>
           <h3 className={styles.title}>{name}</h3>
           <p className={styles.description}>{description}</p>

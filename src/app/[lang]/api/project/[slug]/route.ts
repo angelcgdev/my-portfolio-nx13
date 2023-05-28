@@ -13,9 +13,7 @@ export async function GET(request: Request, { params }: Context<Params>) {
     const even = (project: Project) => project.slug === params.slug;
     const project = projects.find(even);
     if(project){
-        const response: ProjectBySlugResponse = {
-            data: project
-        }
+        const response: ProjectBySlugResponse = { data: project }
         return NextResponse.json(response);
     }
     const response: Response = { error: 'not found' }
