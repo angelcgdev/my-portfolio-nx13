@@ -15,7 +15,10 @@ export interface InternationlizationProps {
 }
 
 async function getData(lang: Locale): Promise<experienceResponse> {
-  const res = await fetch(`http://localhost:3000/${lang}/api/experience`, {method: 'GET', headers: { 'Accept-Language': lang}});
+  const environment = process.env.environment;
+  const domainProd = process.env.HOSTNAMEPROD;
+  const domainDev = process.env.HOSTNAMEDEV;
+  const res = await fetch(`${environment==='production'?domainProd:domainDev}/${lang}/api/experience`, {method: 'GET', headers: { 'Accept-Language': lang}});
   if(!res.ok) {
     throw new Error('Faild to fetch data');
   }
