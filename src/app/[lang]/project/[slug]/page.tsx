@@ -12,7 +12,7 @@ import { ProjectBySlugResponse } from "../../api/project/[slug]/route";
 
 async function getProject(lang: Locale, slug: string):Promise<ProjectBySlugResponse> {
   const domain = process.env.HOSTNAME;
-  const res = await fetch(`${domain}/${lang}/api/project/${slug}`);
+  const res = await fetch(`${domain}/${lang}/api/project/${slug}`, { cache: 'no-store'});
   if(!res.ok){
     throw new Error(`Faild to fetch data`);
   }
