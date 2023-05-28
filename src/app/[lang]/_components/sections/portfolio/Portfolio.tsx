@@ -1,10 +1,12 @@
-import { projects } from "@/app/[lang]/api/db";
 import ProjectCard from "../../ProjectCard/ProjectCard";
 import { SectionWrapper, SectionTitle } from "../../Section";
 import { CommonProps } from "../Welcome";
 import { Filter } from "./Filter";
-
-export const PortfolioSection = ({ dictionary }: CommonProps) => {
+import { Project } from "@/models/project.model";
+interface Props extends CommonProps {
+  projects: Project[];
+}
+export const PortfolioSection = ({ dictionary,projects }: Props) => {
   return (
     <SectionWrapper id="#portfolio">
       <SectionTitle>{dictionary.portfolio.title}</SectionTitle>

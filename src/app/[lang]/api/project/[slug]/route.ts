@@ -1,5 +1,4 @@
 import { Project } from "@/models/project.model";
-import { Locale } from "next/dist/compiled/@vercel/og/satori";
 import { NextResponse } from "next/server";
 import { projects } from "../../db";
 import { CommonParams, Context, Response } from "../../models";
@@ -8,11 +7,13 @@ interface Params extends CommonParams {
     slug: string,
 }
 
+export type ProjectBySlugResponse = Response<Project>;
+
 export async function GET(request: Request, { params }: Context<Params>) {
     const even = (project: Project) => project.slug === params.slug;
     const project = projects.find(even);
     if(project){
-        const response: Response<Project> = {
+        const response: ProjectBySlugResponse = {
             data: project
         }
         return NextResponse.json(response);

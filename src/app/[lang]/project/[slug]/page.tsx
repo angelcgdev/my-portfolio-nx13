@@ -2,18 +2,29 @@ import React from "react";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { LeftSide, SectionTitle, SectionTools } from "@/components/Section";
-import { loadProyect } from "@/lib/load-proyect";
 import { Metadata } from "next";
 import { BackButton } from "@/components/BackButton";
 import { InternationlizationProps } from "../../page";
 import { getDictionary } from "../../dictionaries";
+import { Locale } from "../../i18n-config";
+import { ProjectBySlugResponse } from "../../api/project/[slug]/route";
+
+
+async function getProject(lang: Locale, slug: string):Promise<ProjectBySlugResponse> {
+  const domain = process.env.HOSTNAME;
+  const res = await fetch(`${domain}/${lang}/api/project/${slug}`);
+  if(!res.ok){
+    throw new Error(`Faild to fetch data`);
+  }
+  return res.json();
+}
 
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
+  params: { slug: string, lang: Locale };
 }): Promise<Metadata> {
-  const project = await loadProyect(params.slug);
+  const { data: project} = await getProject(params.lang, params.slug);
   if (!project) {
     return {};
   }
@@ -24,16 +35,13 @@ export async function generateMetadata({
   };
 }
 
-async function getProject(slug: string) {
-  const project = await loadProyect(slug);
-  return project;
-}
 export default async function Page({ params }: InternationlizationProps) {
-  let project = await getProject(params.slug ?? "");
+  let projectData = await getProject(params.lang, params.slug!);
+  const dictionaryData = await getDictionary(params.lang);
+  const [dictionary, {data: project}] = await Promise.all([dictionaryData, projectData])
   if (!project) {
     notFound();
   }
-  const dictionary = await getDictionary(params.lang);
 
   return (
     <>
@@ -50,7 +58,7 @@ export default async function Page({ params }: InternationlizationProps) {
           </figure>
           <div>
             <SectionTitle>{project!.title}</SectionTitle>
-            <SectionTools tools={project!.tools} />
+            <SectionTools tools={project?.tools} />
             <LeftSide type="full">
               <p className="text-body">{project!.longDescription}</p>
             </LeftSide>

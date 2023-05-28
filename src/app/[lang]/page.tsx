@@ -9,20 +9,28 @@ import { getDictionary } from "./dictionaries";
 import { Locale } from "./i18n-config";
 import { Toaster } from "@/components/Toaster";
 import { ExperienceResponse } from "./api/experience/route";
+import { ProjectResponse } from "./api/project/route";
 
 export interface InternationlizationProps {
   params: { lang: Locale; slug?: string };
 }
 
-async function getData(lang: Locale): Promise<ExperienceResponse> {
+async function getExperience(lang: Locale): Promise<ExperienceResponse> {
   const domain = process.env.HOSTNAME;
   const url = `${domain}/${lang}/api/experience`;
-  console.log({url});
-  const res = await fetch(url, {method: 'GET', headers: { 'Accept-Language': lang}});
+  const res = await fetch(url, {method: 'GET', });
   if(!res.ok) {
     throw new Error(`Faild to fetch data ${url}`);
   }
-  
+  return res.json();
+}
+async function getProjects(lang: Locale): Promise<ProjectResponse> {
+  const domain = process.env.HOSTNAME;
+  const url = `${domain}/${lang}/api/project`;
+  const res = await fetch(url, {method: 'GET'});
+  if(!res.ok) {
+    throw new Error(`Faild to fetch data ${url}`);
+  }
   return res.json();
 }
 
@@ -30,16 +38,17 @@ export default async function Page({
   params: { lang },
 }: InternationlizationProps) {
   const dictionaryData = getDictionary(lang);
-  const experienceData = await getData(lang);
-  const [dictionary, { data }] = await Promise.all([dictionaryData, experienceData])
+  const experienceData = await getExperience(lang);
+  const projectsData = await getProjects(lang);
+  const [dictionary, { data: experiences }, { data: projects}] = await Promise.all([dictionaryData, experienceData, projectsData])
 
   return (
     <>
       <Toaster />
       <Welcome dictionary={dictionary} />
       <About dictionary={dictionary} />
-      <ExperienceSection dictionary={dictionary}  experiences={data} locale={lang}/>
-      <PortfolioSection dictionary={dictionary} />
+      <ExperienceSection dictionary={dictionary}  experiences={experiences} locale={lang}/>
+      <PortfolioSection dictionary={dictionary} projects={projects}/>
       <ContactSection dictionary={dictionary} />
     </>
   );
