@@ -11,7 +11,7 @@ export interface CommonProps {
 }
 export function Welcome({ dictionary }: CommonProps) {
   return (
-    <section
+    <main
       id="#welcome"
       className={styles["wrapper"]}
       style={{ height: `calc(100dvh - ${NAVBARHEIGHT}px)` }}
@@ -55,6 +55,6 @@ export function Welcome({ dictionary }: CommonProps) {
         </div>
         <NextSection className={styles["next-position"]} href="#welcome" />
       </div>
-    </section>
+    </main>
   );
 }

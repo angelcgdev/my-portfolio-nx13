@@ -1,7 +1,6 @@
 import React from "react";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import type en from "@/app/[lang]/dictionaries/en.json";
 import { LeftSide, SectionTitle, SectionTools } from "../../_components/Section";
 import { loadProyect } from "@/lib/load-proyect";
 import { Metadata } from "next";

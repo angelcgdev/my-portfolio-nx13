@@ -57,7 +57,7 @@ export default async function RootLayout({
             <NavBar className="sticky top-0 z-10" />
             <div className="h-[2px] bg-borderc transition-all duration-200" />
           </header>
-          <main>{children}</main>
+          {children}
           <Footer dictionary={dictionary} />
           <div className={styles["gradient-circle-button"]}></div>
         </Providers>
