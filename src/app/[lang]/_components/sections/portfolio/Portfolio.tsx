@@ -37,7 +37,7 @@ export const PortfolioSection = ({ dictionary,projects }: Props) => {
                       img={project.imageUrl}
                       name={project.title}
                       imgBlur={project.tumbnailurlBlur}
-                      description={project.description}
+                      description={project.categories}
                       slug={project.slug}
                     />
                   </li>

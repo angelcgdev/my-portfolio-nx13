@@ -9,7 +9,7 @@ export async function GET(req: NextRequest, { params }: Context) {
 
     const { searchParams } = new URL(req.url);
     const category = searchParams.get('category')
-    const projectsFiltered = category? projects.filter((project)=>project.description.includes(category)): projects;
+    const projectsFiltered = category? projects.filter((project)=>project.categories.includes(category)): projects;
     const response:ProjectResponse = { data: projectsFiltered, message: category };
     return NextResponse.json(response);
 }

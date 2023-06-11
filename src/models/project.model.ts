@@ -1,6 +1,6 @@
 export interface Project {
     title: string;
-    description: string;
+    categories: string;
     tools: string[];
     longDescription: string;
     imageUrl: string;
