@@ -6,7 +6,7 @@ import { Form } from "./components/Form";
 
 export const ContactSection = ({ dictionary }: CommonProps) => {
   return (
-    <SectionWrapper id="#contact">
+    <SectionWrapper id="contact">
       <SectionTitle>{dictionary.contact.title}</SectionTitle>
       <div>
         <p className="description text-body">

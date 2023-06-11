@@ -19,7 +19,7 @@ const ProjectCard = ({ img, name, description, slug, imgBlur }: Props) => {
       aria-label={`Project ${name}`}
     >
       <article role="article" className={styles.wrapper}>
-        <ProjectBlurImage img={img} imgBlur={imgBlur}/>
+        <ProjectBlurImage img={img}/>
         <div className={styles.body}>
           <h3 className={styles.title}>{name}</h3>
           <p className={styles.description}>{description}</p>

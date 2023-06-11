@@ -12,7 +12,7 @@ export interface Props extends CommonProps {
 
 export const ExperienceSection = ({ dictionary, experiences, locale }: Props) => {
   return (
-    <SectionWrapper id="#experience">
+    <SectionWrapper id="experience">
       <SectionTitle>{dictionary.experience.title}</SectionTitle>
       <ul className="flex flex-col gap-4">
         {experiences.map((experience) => (

@@ -12,7 +12,7 @@ export interface CommonProps {
 export function Welcome({ dictionary }: CommonProps) {
   return (
     <main
-      id="#welcome"
+      id="welcome"
       className={styles["wrapper"]}
       style={{ height: `calc(100dvh - ${NAVBARHEIGHT}px)` }}
     >

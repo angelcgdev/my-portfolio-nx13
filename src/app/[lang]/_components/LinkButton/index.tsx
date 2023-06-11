@@ -16,6 +16,9 @@ export const LinkButton = ({
       role="button"
       className={`button ${className ?? ""}`}
       onClick={scrollTo}
+      scroll={false}
+      shallow={true}
+      
     >
       {children}
     </Link>

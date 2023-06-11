@@ -60,16 +60,6 @@ export const data = {
   //   End About Section ---------------------
   // Experience --------------------
   experience: [
-    // {
-    //   id: 3,
-    //   position: "Tech Coach",
-    //   company: "Talently",
-    //   range: "Febrary 2023 - Currently",
-    //   activities: [
-    //     "Mentoring 1:1 with developers of all levels.",
-    //     "Teach different technologies such as Javascript, TypeScript, React, flutter, Solid Principles.",
-    //   ],
-    // },
     {
       id: 2,
       position: "FullStack developer",

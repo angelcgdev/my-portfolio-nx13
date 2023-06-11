@@ -4,7 +4,7 @@ import { CommonProps } from "./Welcome";
 
 export const About = ({ dictionary }: CommonProps) => {
   return (
-    <SectionWrapper id="#about">
+    <SectionWrapper id="about">
       <SectionTitle>{dictionary.about.title}</SectionTitle>
       <div>
         <p className="description mb-4 text-body">

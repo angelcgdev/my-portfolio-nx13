@@ -4,7 +4,7 @@ export type Response<T = undefined> = T extends undefined ? {
     error?: string;
     data?: T
 }:{
-    message?: string;
+    message?: string | null;
     data: T;
 };
 

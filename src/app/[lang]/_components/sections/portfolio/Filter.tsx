@@ -1,25 +1,27 @@
 "use client";
 import { useRef, useState, MouseEvent, useEffect } from "react";
-const categories = ["All", "Fontend", "Backend"] as const;
-type categories = (typeof categories)[number];
-export const Filter = () => {
+export const categories = ["All", "Frontend", "Backend"] as const;
+export type Categories = (typeof categories)[number];
+type Props = { onChange: (category: Categories)=>void};
+export const Filter = (props:Props) => {
   const firstId = categories[0];
-  const [index, setIndex] = useState<categories>(firstId);
+  const [index, setIndex] = useState<Categories>(firstId);
   const listCategories = useRef<HTMLDivElement>(null);
   const tabIndicator = useRef<HTMLSpanElement>(null);
 
-  function getElementById(id: categories) {
+  function getElementById(id: Categories) {
     return listCategories.current!.children.namedItem(id);
   }
   const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     const id = e.currentTarget.id;
-    setIndex(id as categories);
-    const button = getElementById(id as categories)! as HTMLElement;
+    setIndex(id as Categories);
+    const button = getElementById(id as Categories)! as HTMLElement;
     const { offsetLeft, clientWidth, clientHeight } = button;
     tabIndicator.current!.style.width = `${clientWidth}px`;
     tabIndicator.current!.style.height = `${clientHeight}px`;
     tabIndicator.current!.style.left = `${offsetLeft}px`;
+    props.onChange(id as Categories)
   };
 
   useEffect(() => {
