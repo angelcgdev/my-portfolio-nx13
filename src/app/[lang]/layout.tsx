@@ -49,7 +49,7 @@ export default async function RootLayout({
     <html lang={params.lang} suppressHydrationWarning>
       <body className={`${poppins.className} relative`}>
         <Providers>
-          <div className={styles["gradient-circle"]}></div>
+          {/* <div className={styles["gradient-circle"]}></div> */}
           <header className="sticky top-[-29px] z-10">
             <div className="flex justify-center hover:underline py-1 text-sm bg-white transition-all duration-200 dark:bg-black border-borderc border-b border-dotted">
               <LocaleSwitcher />
@@ -59,7 +59,7 @@ export default async function RootLayout({
           </header>
           {children}
           <Footer dictionary={dictionary} />
-          <div className={styles["gradient-circle-button"]}></div>
+          {/* <div className={styles["gradient-circle-button"]}></div> */}
         </Providers>
       </body>
     </html>

@@ -25,28 +25,14 @@ async function getExperience(lang: Locale): Promise<ExperienceResponse> {
   }
   return res.json();
 }
-async function getProjects(props:{lang: Locale, filter: Categories}): Promise<ProjectResponse> {
-  const domain = process.env.HOSTNAME;
-  let url = `${domain}/${props.lang}/api/project`;
-  if(props.filter!='All'){
-    url = `${domain}/${props.lang}/api/project?category=${props.filter}`;
-  }
-  const res = await fetch(url, {method: 'GET'});
-  if(!res.ok) {
-    throw new Error(`Faild to fetch data ${url}`);
-  }
-  return res.json();
-}
+
 
 export default async function Page({
   params: { lang },
 }: InternationlizationProps) {
   const dictionaryData = getDictionary(lang);
   const experienceData = getExperience(lang);
-  const projectsData = getProjects({lang, filter: 'All'});
-  const projectsFrontData = getProjects({lang, filter: 'Frontend'});
-  const projectsBackData = getProjects({lang, filter: 'Backend'});
-  const [dictionary, { data: experiences }, ...projects] = await Promise.all([dictionaryData, experienceData, projectsData, projectsFrontData, projectsBackData])
+  const [dictionary, { data: experiences }] = await Promise.all([dictionaryData, experienceData])
 
   return (
     <>
@@ -54,7 +40,7 @@ export default async function Page({
       <Welcome dictionary={dictionary} />
       <About dictionary={dictionary} />
       <ExperienceSection dictionary={dictionary}  experiences={experiences} locale={lang}/>
-      <PortfolioSection dictionary={dictionary} projects={projects}/>
+      <PortfolioSection lang={lang} dictionary={dictionary}/>
       <ContactSection dictionary={dictionary} />
     </>
   );
