@@ -48,7 +48,6 @@ export default async function RootLayout({
       <body className={`${poppins.className} relative`}>
         <Providers>
           <header className="sticky top-0 z-10">
-            <NavBar className="sticky top-0 z-10 border-b-2 border-borderc" />
           </header>
           {children}
           <Footer dictionary={dictionary} />

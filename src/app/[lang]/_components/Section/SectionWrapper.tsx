@@ -7,7 +7,7 @@ export const SectionWrapper = forwardRef<
 >(({ id, children, ...rest }, ref) => {
   return (
     <section id={id} ref={ref} className={styles["wrapper"]} {...rest}>
-      <div className="flex flex-col gap-10">{children}</div>
+      <div className="flex flex-col gap-10 relative top-0">{children}</div>
     </section>
   );
 });

@@ -36,10 +36,10 @@ body {
 
 @layer components {
   nav > :first-child,
-  main > :first-child,
+  /* main > :first-child, */
   section > :first-child,
   footer > :first-child {
-    @apply m-auto w-full max-w-5xl px-5 md:px-7  lg:px-8 2xl:max-w-5xl;
+    @apply m-auto w-full max-w-5xl px-5 sm:px-7 md:px-10  lg:px-11 2xl:max-w-5xl;
   }
 
   button,
