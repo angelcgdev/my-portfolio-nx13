@@ -6,18 +6,13 @@ interface Props {
   onChange: () => void;
 }
 export const MobileMainOptions = ({ open, onChange, isHome }: Props) => {
+  if (isHome) {
+    return <div className="md:hidden">
+      <MenuButton onClick={onChange} open={open} />
+    </div>
+  }
   return (
-    <ul className="flex flex-row gap-2">
-      <li>
-        <DarkBtn />
-      </li>
-      {isHome ? (
-        <li className="md:hidden">
-          <MenuButton onClick={onChange} open={open} />
-        </li>
-      ) : (
-        <></>
-      )}
-    </ul>
+    <>
+    </>
   );
 };

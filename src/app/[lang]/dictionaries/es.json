@@ -1,6 +1,6 @@
 {
     "header":{
-        "lang-switch":"go to ingles version"
+        "lang-switch":"EN"
     },
     "back-button":"Atras",
   "main":{
@@ -48,9 +48,6 @@
         },
         "btn-send":"Enviar"
       }
-  },
-  "footer":{
-    "by":"Hecho Con ❤ por"
   },
   "resume":{
     "experience-section":{

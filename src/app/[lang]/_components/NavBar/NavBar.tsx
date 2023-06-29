@@ -30,29 +30,22 @@ export const NavBar = ({ className }: Props) => {
             </h1>
           </Link>
         )}
-        <ul className="flex flex-row gap-2">
-          {isHome ? (
-            <li>
-              <MenuOptions id="menu" className="!hidden md:!flex" />
-            </li>
-          ) : (
-            <></>
-          )}
-          <li>
-            <MobileMainOptions
-              open={menu}
-              onChange={() => setMenu(!menu)}
-              isHome={isHome}
-            />
-          </li>
-        </ul>
+        {isHome ? (
+          <MenuOptions id="menu" className="!hidden md:!flex" />
+        ) : (
+          <></>
+        )}
+        <MobileMainOptions
+          open={menu}
+          onChange={() => setMenu(!menu)}
+          isHome={isHome}
+        />
       </div>
       {isHome ? (
         <MenuOptions
           id="mobile-menu"
-          className={`transition-all duration-300 md:!hidden ${
-            menu ? styles["open"] : ""
-          }`}
+          className={`transition-all duration-300 md:!hidden ${menu ? styles["open"] : ""
+            }`}
           afterNavigate={() => setMenu(false)}
         />
       ) : (

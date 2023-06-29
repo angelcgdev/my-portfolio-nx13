@@ -1,6 +1,6 @@
 {
   "header":{
-      "lang-switch":"ir a la versión en español"
+      "lang-switch":"ES"
   },
   "back-button":"Back",
   "main":{
@@ -48,9 +48,6 @@
         },
         "btn-send":"Send"
       }
-  },
-  "footer":{
-    "by":"Made With ❤ by"
   },
   "resume":{
     "experience-section":{

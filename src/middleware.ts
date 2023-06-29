@@ -26,9 +26,10 @@ export function middleware(request: NextRequest) {
   );
 
   // Redirect if there is no locale
-  console.log({ pathnameIsMissingLocale });
+  console.log({ pathnameIsMissingLocale, pathname ,here: true});
   if (pathnameIsMissingLocale) {
     const locale = getLocale(request);
+    console.log({locale});
 
     // e.g. incoming request is /products
     // The new URL is now /en-US/products
@@ -41,8 +42,14 @@ export function middleware(request: NextRequest) {
 export const config = {
   matcher: [
     // Skip all internal paths (_next)
-    "/((?!_next).*)",
+    
     // Optional: only run on root (/) URL
     // '/'
+    '/',
+    '/es',
+    '/en',
+    '/project/:slug*',
+    '/es/project/:slug*',
+    '/en/project/:slug*',
   ],
 };
