@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 const plugin = require("tailwindcss/plugin");
-const { fontFamily } = require("tailwindcss/defaultTheme");
+const { fontFamily, screens } = require("tailwindcss/defaultTheme");
 
 const hoverPlugin = plugin(function ({ addVariant, e, postcss }) {
   addVariant("hover", ({ container, separator }) => {
@@ -48,6 +48,11 @@ module.exports = {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
       },
+
+    screens: {
+      'xs': '475px',
+      ...screens,
+    },
     },
   },
   variants: {

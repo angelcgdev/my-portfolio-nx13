@@ -1,10 +1,8 @@
 .wrapper {
-  @apply relative flex flex-col gap-20 pb-4 pt-4 md:pb-40;
+  @apply flex flex-col gap-20 pb-4 pt-4 md:pb-40;
 
-  > .next-position {
-    @apply sticky bottom-5 z-[5] self-center;
-  }
+
 }
 .title {
-  @apply select-none text-2xl sm:text-2xl md:text-3xl top-0 z-20 sticky backdrop-blur-sm py-3 bg-white/70 dark:bg-black/70 md:py-4;
+  @apply select-none text-2xl sm:text-2xl md:text-3xl backdrop-blur-sm py-3 bg-white/70 dark:bg-black/70 md:py-4;
 }

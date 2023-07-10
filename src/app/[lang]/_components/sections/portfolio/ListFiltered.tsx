@@ -12,7 +12,7 @@ export async function ListFiltered ({lang = 'en', filter='All'}:{lang: Locale, f
     const projectsData = getProjects({lang, filter });
 
   return (
-    <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    <ul className="grid grid-cols-1 gap-4 xs:grid-cols-2 lg:grid-cols-3">
         {
         projectsData.map((project, index)=>(
             <li key={index}>
